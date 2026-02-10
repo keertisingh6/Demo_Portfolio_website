@@ -138,8 +138,8 @@ chmod 400 /path/to/your-key.pem
 ```
 For Windows in CMD
 ```bash Windows
-icacls "/path/to/your-key.pem" /inheritance:r
-icacls "/path/to/your-key.pem" /grant:r "%username%":F
+icacls "your-key.pem" /inheritance:r
+icacls "your-key.pem" /grant:r "%username%":F
 ```
 
 #### Step 5.1.2: Connect to your instance
