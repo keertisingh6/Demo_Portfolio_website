@@ -35,7 +35,7 @@ services:
     image: YOUR_DOCKERHUB_USERNAME/deployment-demo:latest
     container_name: deployment-demo
     ports:
-      - "13000:3000"
+      - "13000:80"
     restart: unless-stopped
 ```
 
@@ -122,7 +122,7 @@ If you didn’t configure the security group during launch:
 3. Save the rules.
 
 - **Port 22:** So you can SSH into the instance.
-- **Port 13000:** So the browser can reach the app. The app listens on **3000 inside the container**; we map **host 13000 → container 3000** in `docker-compose.yml`. If 13000 is not open, the app will run but won’t load in the browser.
+- **Port 13000:** So the browser can reach the app. The app listens on **80 inside the container**; we map **host 13000 → container 80** in `docker-compose.yml`. If 13000 is not open, the app will run but won’t load in the browser.
 
 ---
 
@@ -259,7 +259,7 @@ services:
     image: YOUR_DOCKERHUB_USERNAME/deployment-demo:latest
     container_name: deployment-demo
     ports:
-      - "13000:3000"
+      - "13000:80"
     restart: unless-stopped
 EOF
 ```
@@ -325,7 +325,7 @@ You should see something like:
 
 ```
 NAME                IMAGE                                  STATUS    PORTS
-deployment-demo     YOUR_DOCKERHUB_USERNAME/deployment-demo:latest   Up   0.0.0.0:13000->3000/tcp
+deployment-demo     YOUR_DOCKERHUB_USERNAME/deployment-demo:latest   Up   0.0.0.0:13000->80/tcp
 ```
 
 ---
@@ -354,8 +354,8 @@ Replace `EC2_PUBLIC_IP` with your instance’s public IP. You should see the sam
 
 ### Port mapping
 
-- **Browser** → **EC2:13000** → **Container:3000** → Node.js app.  
-  `13000` is the host port we expose; `3000` is the port the app listens on inside the container.
+- **Browser** → **EC2:13000** → **Container:80**   
+  `13000` is the host port we expose; `80` is the port the app listens on inside the container.
 
 ### End-to-end flow
 
