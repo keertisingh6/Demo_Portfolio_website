@@ -1,6 +1,6 @@
 services:
   app:
-    image: YOUR_DOCKERHUB_USERNAME/deployment-demo:latest
+    image: keertisingh6/demo_portofolio_website
     container_name: deployment-demo
     ports:
       - "13000:80"   # host:container (nginx uses 80)
