@@ -1,7 +1,7 @@
 services:
   app:
-    image: keertisingh6/demo_portofolio_website
+    image: keertisingh6/deployment-demo:latest
     container_name: deployment-demo
     ports:
-      - "13000:80"   # host:container (nginx uses 80)
+      - "13000:80"
     restart: unless-stopped
